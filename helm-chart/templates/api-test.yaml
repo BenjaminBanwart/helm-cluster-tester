@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ include "cluster-tester.name" . }}-api-test
+    namespace: {{ .Values.namespace }}
+    labels:
+        app: {{ include "cluster-tester.name" . }}
+data:
+    api-compatibility: |
+        {{- range $api := .Values.testApis }}
+        {{ $api }}: {{ .Capabilities.APIVersions.Has $api | ternary "AVAILABLE" "NOT AVAILABLE" }}
+        {{- end }}

@@ -1,0 +1,6 @@
+# Configuration values for the Helm chart
+# Default values for cluster-tester.
+testApis:
+  - monitoring.coreos.com/v1
+  - apps/v1
+namespace: default

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: cluster-tester
+description: A Helm chart to test cluster API compatiblity and Helm rendering
+version: 0.1.0
+appVersion: "1.0"
